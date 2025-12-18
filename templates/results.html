@@ -1,329 +1,320 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OSMECON - Your Events</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OSMECON - Your Events</title>
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #4169B3 0%, #5B9BD5 50%, #7CB342 100%);
-            min-height: 100vh;
-            padding: 40px 20px;
-            position: relative;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body::before {
-            content: '';
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            background: rgba(124, 179, 66, 0.3);
-            border-radius: 50%;
-            top: -100px;
-            right: -100px;
-            z-index: 0;
-        }
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #4169B3 0%, #5B9BD5 50%, #7CB342 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
 
-        body::after {
-            content: '';
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background: rgba(65, 105, 179, 0.3);
-            border-radius: 50%;
-            bottom: -50px;
-            left: -50px;
-            z-index: 0;
-        }
+.container {
+    max-width: 800px;
+    margin: auto;
+}
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
+/* ======================
+   COMPACT HEADER
+====================== */
+.header-card {
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    padding: 16px 20px;
+    margin-bottom: 14px;
+}
 
-        .header-card {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-            padding: 40px;
-            margin-bottom: 30px;
-            text-align: center;
-            animation: fadeIn 0.6s ease-in;
-        }
+.header-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+.logo {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 3px solid #4169B3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
 
-        .logo {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: white;
-            border-radius: 50%;
-            padding: 12px;
-            box-shadow: 0 8px 20px rgba(65, 105, 179, 0.3);
-            border: 4px solid #4169B3;
-        }
+.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+}
 
-        .logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            border-radius: 50%;
-        }
+.header-text {
+    flex: 1;
+}
 
-        .university-name {
-            font-size: 1.5em;
-            color: #D32F2F;
-            font-weight: 700;
-            letter-spacing: 2px;
-            margin-bottom: 25px;
-        }
+.university-name {
+    font-size: 1.15em;
+    font-weight: 700;
+    color: #D32F2F;
+    letter-spacing: 1px;
+}
 
-        .success-icon {
-            font-size: 3em;
-            margin-bottom: 15px;
-        }
+.student-name {
+    font-size: 1.35em;
+    font-weight: 700;
+    color: #4169B3;
+    margin-top: 2px;
+}
 
-        .welcome-title {
-            font-size: 1.8em;
-            color: #34495E;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
+.uid-display {
+    font-size: 0.9em;
+    color: #555;
+    background: #F1F3F5;
+    padding: 4px 10px;
+    border-radius: 6px;
+    display: inline-block;
+    margin-top: 4px;
+}
 
-        .student-name {
-            font-size: 2em;
-            color: #4169B3;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
+/* Change ID button */
+.change-id-link {
+    font-size: 0.9em;
+    font-weight: 600;
+    color: #4169B3;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: #F1F3F5;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
 
-        .uid-display {
-            font-size: 1.1em;
-            color: #7F8C8D;
-            font-weight: 600;
-            padding: 10px 20px;
-            background: #F8F9FA;
-            border-radius: 8px;
-            display: inline-block;
-        }
+.change-id-link:hover {
+    background: #E3F2FD;
+    color: #2A5298;
+}
 
-        .events-section {
-            margin-top: 30px;
-        }
+/* ======================
+   EVENTS SECTION
+====================== */
+.section-title {
+    text-align: center;
+    color: white;
+    font-size: 1.25em;
+    font-weight: 700;
+    margin: 10px 0;
+}
 
-        .section-title {
-            color: white;
-            font-size: 1.5em;
-            font-weight: 700;
-            margin-bottom: 20px;
-            text-align: center;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        }
+.events-table-container {
+    background: white;
+    border-radius: 14px;
+    padding: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
 
-        .event-card {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            border-left: 6px solid #7CB342;
-            transition: all 0.3s ease;
-            animation: slideUp 0.5s ease-out;
-            animation-fill-mode: both;
-        }
+.events-table {
+    width: 100%;
+    border-collapse: collapse;
+}
 
-        .event-card:nth-child(1) {
-            animation-delay: 0.1s;
-        }
+.events-table thead {
+    background: linear-gradient(135deg, #4169B3, #5B9BD5);
+}
 
-        .event-card:nth-child(2) {
-            animation-delay: 0.2s;
-        }
+.events-table th {
+    color: white;
+    padding: 12px;
+    font-size: 1em;
+    text-align: left;
+}
 
-        .event-card:nth-child(3) {
-            animation-delay: 0.3s;
-        }
+.events-table th:first-child {
+    width: 55px;
+    text-align: center;
+}
 
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+.events-table td {
+    padding: 12px;
+    border-bottom: 1px solid #E0E0E0;
+}
 
-        .event-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-        }
+.events-table tbody tr:last-child td {
+    border-bottom: none;
+}
 
-        .event-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
+.event-number {
+    text-align: center;
+    font-weight: 700;
+    color: #7CB342;
+}
 
-        .event-icon {
-            font-size: 2em;
-            margin-right: 15px;
-            background: linear-gradient(135deg, #7CB342, #9CCC65);
-            width: 60px;
-            height: 60px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+.event-name-cell {
+    font-weight: 600;
+    color: #4169B3;
+    cursor: pointer;
+}
 
-        .event-name {
-            flex: 1;
-            font-size: 1.3em;
-            font-weight: 700;
-            color: #2C3E50;
-            line-height: 1.4;
-        }
+.event-name-cell:hover {
+    text-decoration: underline;
+}
 
-        .event-location {
-            display: flex;
-            align-items: center;
-            padding: 12px 15px;
-            background: #E3F2FD;
-            border-radius: 8px;
-            margin-top: 15px;
-        }
+/* ======================
+   MODAL
+====================== */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+}
 
-        .location-icon {
-            font-size: 1.3em;
-            margin-right: 10px;
-            color: #4169B3;
-        }
+.modal-content {
+    background: white;
+    max-width: 420px;
+    margin: 12% auto;
+    border-radius: 14px;
+    overflow: hidden;
+}
 
-        .location-text {
-            font-size: 1em;
-            color: #34495E;
-            font-weight: 600;
-        }
+.modal-header {
+    background: linear-gradient(135deg, #4169B3, #5B9BD5);
+    color: white;
+    padding: 14px;
+}
 
-        .back-button {
-            display: block;
-            width: 100%;
-            max-width: 300px;
-            margin: 30px auto 0;
-            padding: 15px;
-            font-size: 1em;
-            font-weight: 600;
-            color: white;
-            background: linear-gradient(135deg, #4169B3, #5B9BD5);
-            border: none;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(65, 105, 179, 0.4);
-            text-decoration: none;
-            text-align: center;
-        }
+.modal-body {
+    padding: 18px;
+}
 
-        .back-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(65, 105, 179, 0.5);
-        }
+.location-info {
+    background: #E3F2FD;
+    border-left: 4px solid #4169B3;
+    padding: 14px;
+    border-radius: 8px;
+}
 
-        .footer {
-            text-align: center;
-            margin-top: 40px;
-            color: white;
-            font-size: 0.9em;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-        }
+.location-text {
+    font-size: 1.05em;
+    font-weight: 600;
+}
 
-        @media (max-width: 600px) {
-            .header-card {
-                padding: 30px 20px;
-            }
+.close-modal {
+    margin-top: 14px;
+    width: 100%;
+    padding: 10px;
+    background: #4169B3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
 
-            .student-name {
-                font-size: 1.6em;
-            }
+/* ======================
+   MOBILE
+====================== */
+@media (max-width: 600px) {
+    .header-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 
-            .event-name {
-                font-size: 1.1em;
-            }
-
-            .event-card {
-                padding: 20px;
-            }
-        }
-    </style>
+    .change-id-link {
+        align-self: flex-end;
+    }
+}
+</style>
 </head>
+
 <body>
-    <div class="container">
-        <div class="header-card">
-            <div class="logo" id="logoContainer">
-                <img src="{{ url_for('static', filename='osmania-logo.jpeg') }}" alt="OSMECON Logo" id="logoImg">
-            </div>
-            <div class="university-name">OSMECON</div>
-            
-            <div class="success-icon">✅</div>
-            <div class="welcome-title">Welcome,</div>
-            <div class="student-name">{{ student_name }}</div>
-            <div class="uid-display">ID: {{ uid }}</div>
-        </div>
+<div class="container">
 
-        <div class="events-section">
-            <div class="section-title">📋 Your Registered Events</div>
-            
-            {% for event in events %}
-            <div class="event-card">
-                <div class="event-header">
-                    <div class="event-icon">📚</div>
-                    <div class="event-name">{{ event.name }}</div>
-                </div>
-                <div class="event-location">
-                    <div class="location-icon">📍</div>
-                    <div class="location-text">{{ event.location }}</div>
-                </div>
+    <!-- HEADER -->
+    <div class="header-card">
+        <div class="header-row">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='osmania-logo.jpeg') }}" alt="Logo">
             </div>
-            {% endfor %}
-        </div>
 
-        <a href="/" class="back-button">← Check Another ID</a>
+            <div class="header-text">
+                <div class="university-name">OSMECON</div>
+                <div class="student-name">{{ student_name }}</div>
+                <div class="uid-display">ID: {{ uid }}</div>
+            </div>
+
+            <a href="/" class="change-id-link">Change ID</a>
+        </div>
     </div>
 
-    <script>
-        const logoImg = document.getElementById('logoImg');
-        const logoContainer = document.getElementById('logoContainer');
-        
-        if (logoImg) {
-            logoImg.addEventListener('error', function() {
-                logoContainer.innerHTML = '🏥';
-                logoContainer.style.fontSize = '2.5em';
-            });
-        }
-    </script>
+    <!-- EVENTS -->
+    <div class="section-title">📋 Your Registered Events</div>
+
+    <div class="events-table-container">
+        <table class="events-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Event Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for event in events %}
+                <tr>
+                    <td class="event-number">{{ loop.index }}</td>
+                    <td class="event-name-cell"
+                        onclick="showLocation('{{ event.name }}','{{ event.location }}')">
+                        {{ event.name }}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<!-- MODAL -->
+<div id="locationModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 id="modalEventName"></h3>
+        </div>
+        <div class="modal-body">
+            <div class="location-info">
+                <div class="location-text" id="modalLocation"></div>
+            </div>
+            <button class="close-modal" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+</div>
+
+<script>
+function showLocation(name, location) {
+    document.getElementById('modalEventName').textContent = name;
+    document.getElementById('modalLocation').textContent = location;
+    document.getElementById('locationModal').style.display = 'block';
+}
+
+function closeModal() {
+    document.getElementById('locationModal').style.display = 'none';
+}
+
+window.onclick = function(e) {
+    if (e.target === document.getElementById('locationModal')) {
+        closeModal();
+    }
+};
+</script>
+
 </body>
 </html>

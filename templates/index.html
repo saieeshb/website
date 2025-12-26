@@ -574,7 +574,8 @@ body::after {
     🕌 Prayer Room
 </button>
 
-<button class="heartfullness-button" onclick= "window.location.href='/heartfulness.pdf'">
+<button class="heartfullness-button" 
+        onclick="window.location.href='{{ url_for('static', filename='heartfulness.pdf') }}'">
     🪷 Heartfulness
 </button>
 

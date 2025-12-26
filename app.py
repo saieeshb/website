@@ -1,6 +1,6 @@
 # OSMECON Event Check System
 # Shows students which events they signed up for
-from flask import Flask, request, render_template, send_from_directory, send_file
+from flask import Flask, request, render_template
 import pandas as pd
 import os
 import re
@@ -11,19 +11,7 @@ import re
 
 # Get absolute paths
 script_dir = os.path.dirname(os.path.abspath(__file__))  # backend/ folder
-frontend_dir = os.path.join(script_dir, '..', 'frontend')
-static_dir = os.path.join(frontend_dir, 'static')
 
-print(f"Backend directory: {script_dir}")
-print(f"Frontend directory: {frontend_dir}")
-print(f"Static directory: {static_dir}")
-print(f"Frontend exists: {os.path.exists(frontend_dir)}")
-print(f"Static exists: {os.path.exists(static_dir)}")
-
-# List files in frontend directory
-print("\nFiles in frontend directory:")
-for file in os.listdir(frontend_dir):
-    print(f"  {file}")
 
 app = Flask(__name__)
 
@@ -37,17 +25,14 @@ print(f"Excel file exists: {os.path.exists(excel_path)}")
 
 @app.route('/')
 def index():
-    print(f"[ROUTE] / -> Rendering index.html from {frontend_dir}")
     return render_template('index.html')
 
 @app.route('/schedule')
 def schedule():
-    print(f"[ROUTE] /schedule -> Rendering schedule.html from {frontend_dir}")
     return render_template('schedule.html')
 
 @app.route('/results')
 def results():
-    print(f"[ROUTE] /results -> Rendering results.html from {frontend_dir}")
     return render_template('results.html')
 
 # =========================
@@ -57,22 +42,7 @@ def results():
 
 @app.route('/event_schedule.pdf')
 def serve_event_pdf():
-    """Direct route for event schedule PDF"""
-    # Try multiple possible locations
-    possible_paths = [
-        os.path.join(frontend_dir, 'event_schedule.pdf'),
-        os.path.join(static_dir, 'event_schedule.pdf'),
-        os.path.join(frontend_dir, 'events_schedule.pdf'),
-        os.path.join(static_dir, 'events_schedule.pdf'),
-    ]
-    
-    for pdf_path in possible_paths:
-        if os.path.exists(pdf_path):
-            print(f"\n[PDF Route] Found PDF at: {pdf_path}")
-            return send_file(pdf_path, as_attachment=False)
-    
-    print(f"\n[PDF Route] PDF not found in any location")
-    return "Event schedule PDF not found. Please check if the file exists.", 404
+    return app.send_static_file('event_schedule.pdf')
 
 # =========================
 # REST OF YOUR EXISTING CODE (UNCHANGED)

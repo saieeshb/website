@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    <meta property="og:title" content="OSMECON 2025 – Event Registration & Schedule">
+    <meta property="og:description" content="Check your registered events, view schedules for OSMECON">
+    <meta property="og:image" content="https://osmecon.info/static/og-image.png">
+    <meta property="og:url" content="https://osmecon.info">
+    <meta property="og:type" content="website">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OSMECON - Your Events</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <style>
         * {
@@ -13,7 +21,6 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #4169B3 0%, #5B9BD5 50%, #7CB342 100%);
             min-height: 100vh;
             padding: 40px 20px;
@@ -475,29 +482,6 @@
             }
         }
     </style>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OSMECON - Your Events</title>
-
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #4169B3 0%, #5B9BD5 50%, #7CB342 100%);
-    min-height: 100vh;
-    padding: 20px;
-}
-
-.container {
-    max-width: 800px;
-    margin: auto;
-}
 
 /* ======================
    COMPACT HEADER

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     
     <meta property="og:title" content="OSMECON 2025 – Event Registration & Schedule">
     <meta property="og:description" content="Check your registered events, view schedules for OSMECON">
@@ -20,7 +21,6 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #4169B3 0%, #5B9BD5 50%, #7CB342 100%);
             min-height: 100vh;
             display: flex;
@@ -254,35 +254,6 @@
             }
         }
     </style>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OSMECON - Event Check</title>
-
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #4169B3 0%, #5B9BD5 50%, #7CB342 100%);
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
-
-.container {
-    background: white;
-    border-radius: 16px;
-    box-shadow: 0 16px 40px rgba(0,0,0,0.18);
-    padding: 32px 36px;
-    max-width: 420px;
-    width: 100%;
-}
 
 /* ======================
    HEADER

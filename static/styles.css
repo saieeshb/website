@@ -1,3 +1,23 @@
+@font-face {
+  font-family: "Century Gothic";
+  src: url("/static/fonts/centurygothic_bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("/static/fonts/ProximaNova-Reg.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("/static/fonts/ProximaNova-Bold.ttf") format("truetype");
+  font-weight: 700;
+}
+
+
 
 * {
     margin: 0;
@@ -6,7 +26,7 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Proxima Nova", Arial, sans-serif;
     background: linear-gradient(135deg, #4169B3 0%, #5B9BD5 50%, #7CB342 100%);
     min-height: 100vh;
     display: flex;
@@ -51,8 +71,9 @@ body {
 }
 
 .university-name {
+    font-family: "Century Gothic", Arial, sans-serif;
     font-size: 1.25em;
-    font-weight: 700;
+    font-weight: normal; /* correct for Century Gothic */
     color: #D32F2F;
     letter-spacing: 1px;
 }

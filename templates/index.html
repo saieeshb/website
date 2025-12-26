@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OSMECON - Event Registration Check</title>
+    <link rel=“icon” type=“image/x-icon” href=“{{ url_for(‘static’, filename=‘favicon.ico’) }}”>
     <style>
         * {
             margin: 0;
@@ -555,22 +556,26 @@ button:disabled {
         <button type="submit" id="submitBtn">View My Events</button>
     </form>
 
-    <!-- BUTTONS -->
-    <button class="pdf-button" onclick="window.location.href='/schedule'">
-        📅 View Event Schedule
+       <!— BUTTONS —>
+       
+        <div class=“schedule-split”>
+    <button class=“schedule-btn left”
+            onclick=“window.location.href=‘/schedule’”>
+        📅 View Schedule
     </button>
 
-    <button class="prayer-button" onclick="openPrayerPopup()">
-        🕌 Prayer Room
+    <button class=“schedule-btn right”
+            onclick=“window.location.href=‘/event_schedule.pdf’”>
+        📄 Event Schedule (PDF)
     </button>
+</div>age %}
 
-    {% if error and message %}
-    <div class="error-container">
-        {{ message }}
+        <div class=“error-container”>
+            {{ message }}
+        </div>
+        {% endif %}
+
     </div>
-    {% endif %}
-
-</div>
 
 <!-- PRAYER ROOM POPUP -->
 <div id="prayerModal" class="prayer-modal">
@@ -580,7 +585,7 @@ button:disabled {
             <button class="prayer-close" onclick="closePrayerPopup()">&times;</button>
         </div>
         <div class="prayer-modal-body">
-            <p class="location-text">📍 2nd Floor Acadamic Block, Prayer Room</p>
+            <p class="location-text">📍 2nd Floor Academic Block, Prayer Room</p>
         </div>
     </div>
 </div>

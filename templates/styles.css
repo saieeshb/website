@@ -113,3 +113,14 @@ button:active {
     color: #721c24;
     border: 1px solid #f5c6cb;
 }
+
+.page-results .container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.page-index {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

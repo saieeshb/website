@@ -553,12 +553,11 @@ button:disabled {
             </div>
         </div>
 
-        <button type="submit" id="submitBtn">View My Events</button>
-    </form>
+ <button type="submit" id="submitBtn">View My Events</button>
+</form>
 
-       <!-- BUTTONS -->
-       
-        <div class="schedule-split">
+<!-- BUTTONS -->
+<div class="schedule-split">
     <button class="schedule-btn left"
             onclick="window.location.href='/schedule'">
         📅 View Schedule
@@ -568,14 +567,13 @@ button:disabled {
             onclick="window.location.href='/event_schedule.pdf'">
         📄 Event Schedule (PDF)
     </button>
-</div>age %}
+</div>
 
-        <div class="error-container">
-            {{ message }}
-        </div>
-        {% endif %}
-
-    </div>
+{% if error and message %}
+<div class="error-container">
+    {{ message }}
+</div>
+{% endif %}
 
 <!-- PRAYER ROOM POPUP -->
 <div id="prayerModal" class="prayer-modal">

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSMECON - Event Schedule</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #4169B3 0%, #5B9BD5 50%, #7CB342 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 3px solid #4169B3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .header-info h1 {
+            color: #D32F2F;
+            font-size: 1.5em;
+            margin-bottom: 5px;
+        }
+
+        .header-info p {
+            color: #7F8C8D;
+            font-size: 1em;
+        }
+
+        .back-btn {
+            padding: 12px 24px;
+            background: #4169B3;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #365A9C;
+            transform: translateY(-2px);
+        }
+
+        .day-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .day-header {
+            background: linear-gradient(135deg, #4169B3, #5B9BD5);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+            font-weight: 700;
+        }
+
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .schedule-table thead {
+            background: #F0F4F8;
+        }
+
+        .schedule-table th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            color: #2C3E50;
+            border-bottom: 2px solid #E0E0E0;
+        }
+
+        .schedule-table th:first-child {
+            width: 200px;
+        }
+
+        .schedule-table tbody tr {
+            border-bottom: 1px solid #E8E8E8;
+        }
+
+        .schedule-table tbody tr:last-child {
+            border-bottom: none;
+        }
+
+        .schedule-table tbody tr:hover {
+            background: #F8F9FA;
+        }
+
+        .schedule-table td {
+            padding: 15px;
+            color: #34495E;
+        }
+
+        .time-cell {
+            font-weight: 600;
+            color: #4169B3;
+            white-space: nowrap;
+        }
+
+        .event-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .event-list li {
+            padding: 5px 0;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .event-list li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #7CB342;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .special-event {
+            background: #FFF3E0;
+            padding: 15px;
+            border-left: 4px solid #FF9800;
+            border-radius: 5px;
+            font-weight: 600;
+            color: #E65100;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .header-left {
+                flex-direction: column;
+            }
+
+            .schedule-table th:first-child {
+                width: 120px;
+            }
+
+            .schedule-table th,
+            .schedule-table td {
+                padding: 10px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-left">
+                <div class="logo">
+                    <img src="{{ url_for('static', filename='osmania-logo.jpeg') }}" alt="OSMECON Logo">
+                </div>
+                <div class="header-info">
+                    <h1>OSMECON</h1>
+                    <p>Event Schedule 2025</p>
+                </div>
+            </div>
+            <a href="/" class="back-btn">← Back to Home</a>
+        </div>
+
+        <!-- DAY 1 -->
+        <div class="day-section">
+            <div class="day-header">📅 DAY 1 - 27th December 2025</div>
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Events</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="time-cell">07:00 AM - 08:00 AM</td>
+                        <td>Registration Check-in</td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">08:00 AM - 09:00 AM</td>
+                        <td class="special-event">Inaugural Event and Chief Guest Speech</td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">09:00 AM - 01:00 PM</td>
+                        <td>
+                            <strong>Workshops:</strong>
+                            <ul class="event-list">
+                                <li>Basic Life Support Workshop</li>
+                                <li>Basic Surgical Skills Workshop</li>
+                                <li>Obstetrics and Neonatology Workshop</li>
+                                <li>Emergency & Trauma Care Workshop</li>
+                                <li>Pulmonology Workshop</li>
+                                <li>Cardiology Workshop</li>
+                                <li>Forensic Medicine Workshop</li>
+                                <li>Imaging and Radiology Workshop</li>
+                                <li>Research Methodology Workshop</li>
+                                <li>Arterial Blood Gas Analysis Workshop</li>
+                                <li>Soft Skills Workshop</li>
+                                <li>SIMWAR Workshop</li>
+                                <li>Synergy in Diagnosis Workshop</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">01:00 PM - 02:00 PM</td>
+                        <td>Lunch</td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">02:00 PM - 06:00 PM</td>
+                        <td>
+                            <ul class="event-list">
+                                <li>Post Lunch Session of all Workshops</li>
+                                <li>Case Presentation - Session 1</li>
+                                <li>Medical Symposium - Prelims</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- DAY 2 -->
+        <div class="day-section">
+            <div class="day-header">📅 DAY 2 - 28th December 2025</div>
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Events</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="time-cell">07:00 AM - 08:00 AM</td>
+                        <td>Registration Check-in</td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">08:00 AM - 11:00 AM</td>
+                        <td>
+                            <ul class="event-list">
+                                <li>Case Presentation - Session 2</li>
+                                <li>Paper Presentation</li>
+                                <li>Poster Presentation - Session 1</li>
+                                <li>Medical Symposium - Prelims</li>
+                                <li>Debate - Prelims</li>
+                                <li>Gallery - Invictus, Graphilia, Art Attack, Shuttermedics</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">09:00 AM - 10:30 AM</td>
+                        <td>Medventure</td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">11:00 AM - 01:00 PM</td>
+                        <td class="special-event">Guest Lecture</td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">01:00 PM - 01:30 PM</td>
+                        <td>Lunch</td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">02:00 PM - 06:00 PM</td>
+                        <td>
+                            <ul class="event-list">
+                                <li>Med Quiz</li>
+                                <li>Case Presentation - Session 3</li>
+                                <li>Poster Presentation - Session 2</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- DAY 3 -->
+        <div class="day-section">
+            <div class="day-header">📅 DAY 3 - 29th December 2025</div>
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Events</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="time-cell">07:00 AM - 08:00 AM</td>
+                        <td>Registration Check-in</td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">08:00 AM - 11:00 AM</td>
+                        <td>
+                            <ul class="event-list">
+                                <li>Case Presentation - Session 4</li>
+                                <li>Poster Presentation - Session 3</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">08:00 AM - 10:00 AM</td>
+                        <td>
+                            <ul class="event-list">
+                                <li>Dare to Diagnose - Prelims</li>
+                                <li>Medical Symposium - Finals</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">10:00 AM - 11:00 AM</td>
+                        <td>Debate - Finals</td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">11:00 AM - 01:00 PM</td>
+                        <td>
+                            <ul class="event-list">
+                                <li>Dare to Diagnose - Finals</li>
+                                <li>Poster Presentation - Finals</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">01:00 PM - 02:00 PM</td>
+                        <td>Lunch</td>
+                    </tr>
+                    <tr>
+                        <td class="time-cell">02:00 PM - 04:00 PM</td>
+                        <td class="special-event">Valedictory Ceremony</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html> 

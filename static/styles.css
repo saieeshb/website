@@ -1,115 +1,267 @@
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+* {
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    color: #333;
-}
-
-.container {
-    background-color: white;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    max-width: 400px;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-}
-
-.container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 5px;
-    background: linear-gradient(90deg, #667eea, #764ba2);
-}
-
-h1 {
-    color: #4a4a4a;
-    margin-bottom: 30px;
-    font-size: 2.2em;
-    font-weight: 300;
-    letter-spacing: 1px;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-label {
-    margin-bottom: 15px;
-    font-weight: 500;
-    font-size: 1.1em;
-    color: #555;
-}
-
-input {
-    padding: 15px;
-    margin-bottom: 25px;
-    border: 2px solid #e1e1e1;
-    border-radius: 8px;
-    width: 100%;
-    max-width: 300px;
-    font-size: 1em;
-    transition: border-color 0.3s ease;
     box-sizing: border-box;
 }
 
-input:focus {
-    outline: none;
-    border-color: #667eea;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #4169B3 0%, #5B9BD5 50%, #7CB342 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
 }
 
-button {
-    padding: 15px 30px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1.1em;
-    font-weight: 500;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+.container {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.18);
+    padding: 32px 36px;
+    max-width: 420px;
     width: 100%;
-    max-width: 300px;
 }
 
-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+/* ======================
+   HEADER
+====================== */
+.header {
+    text-align: center;
+    margin-bottom: 24px;
 }
 
-button:active {
-    transform: translateY(0);
+.logo {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    border: 3px solid #4169B3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px;
 }
 
-.message {
-    margin-top: 20px;
-    padding: 15px;
-    border-radius: 8px;
-    font-weight: 500;
+.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.university-name {
+    font-size: 1.25em;
+    font-weight: 700;
+    color: #D32F2F;
+    letter-spacing: 1px;
+}
+
+.subtitle {
+    font-size: 0.95em;
+    color: #6C7A89;
+    margin-top: 6px;
+}
+
+/* ======================
+   FORM
+====================== */
+.form-group {
+    margin-top: 22px;
+}
+
+label {
+    display: block;
+    font-size: 0.95em;
+    font-weight: 600;
+    color: #2C3E50;
+    margin-bottom: 6px;
+}
+
+/* Input group */
+.input-group {
+    display: flex;
+    align-items: center;
+    border: 2px solid #E0E0E0;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #F8F9FA;
+    transition: all 0.2s ease;
+}
+
+.input-group:focus-within {
+    border-color: #4169B3;
+    box-shadow: 0 0 0 3px rgba(65,105,179,0.15);
+    background: white;
+}
+
+.prefix {
+    padding: 12px 14px;
+    background: #ECEFF1;
+    font-weight: 700;
+    color: #4169B3;
+    font-size: 0.95em;
+    border-right: 1px solid #E0E0E0;
+}
+
+input[type="text"] {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 12px 14px;
     font-size: 1em;
+    background: transparent;
 }
 
-.message.success {
-    background-color: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
+/* ======================
+   BUTTONS
+====================== */
+button {
+    margin-top: 15px;
+    width: 100%;
+    padding: 13px;
+    font-size: 1em;
+    font-weight: 600;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
-.message.error {
-    background-color: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
+#submitBtn {
+    background: linear-gradient(135deg, #4169B3, #5B9BD5);
+}
+
+#submitBtn:hover {
+    background: linear-gradient(135deg, #365A9C, #4169B3);
+}
+
+.pdf-button {
+    background: linear-gradient(135deg, #7CB342, #8BC34A);
+}
+
+.pdf-button:hover {
+    background: linear-gradient(135deg, #6BA130, #7CB342);
+}
+
+.prayer-button {
+    background: linear-gradient(135deg, #9C27B0, #7B1FA2);
+}
+
+.prayer-button:hover {
+    background: linear-gradient(135deg, #7B1FA2, #6A1B9A);
+}
+
+button:disabled {
+    opacity: 0.7;
+}
+
+/* ======================
+   ERROR
+====================== */
+.error-container {
+    margin-top: 18px;
+    background: #FFEBEE;
+    border-left: 4px solid #D32F2F;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 0.9em;
+    color: #B71C1C;
+    text-align: center;
+}
+
+/* ======================
+   PRAYER ROOM POPUP
+====================== */
+.prayer-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.prayer-modal-content {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.25);
+    width: 90%;
+    max-width: 350px;
+    overflow: hidden;
+}
+
+.prayer-modal-header {
+    background: linear-gradient(135deg, #9C27B0, #7B1FA2);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.prayer-modal-header h3 {
+    font-size: 1.3em;
+    font-weight: 600;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.prayer-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+    background: none;
+    border: none;
+    padding: 5px;
+    line-height: 1;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.prayer-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.prayer-modal-body {
+    padding: 30px;
+    text-align: center;
+}
+
+.location-text {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #2C3E50;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* ======================
+   MOBILE
+====================== */
+@media (max-width: 480px) {
+    .container {
+        padding: 28px 24px;
+    }
+    
+    .prayer-modal-content {
+        width: 95%;
+    }
 }

@@ -560,7 +560,7 @@ button:disabled {
 <div class="schedule-split">
     <button class="schedule-btn left"
             onclick="window.location.href='/schedule'">
-        📅 View Schedule
+        📅 Event Schedule
     </button>
 
     <button class="schedule-btn right"
@@ -568,6 +568,10 @@ button:disabled {
         📄 Event Schedule (PDF)
     </button>
 </div>
+
+<button class="prayer-button" onclick="openPrayerPopup()">
+    🕌 Prayer Room
+</button>
 
 {% if error and message %}
 <div class="error-container">
